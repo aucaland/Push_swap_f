@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aucaland <aucaland@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:25:30 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 17:27:09 by aucaland         ###   ########.fr       */
+/*   Updated: 2023/01/30 23:38:13 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,23 +61,26 @@ static void	get_list(t_list_int **list, int *tab, int len_str, char **str)
 
 char	**init_str(int argc, char **argv, char **str)
 {
-	int		i;
-	char	*tmp;
+	int	i;
 
 	i = 0;
-	tmp = NULL;
-	str = ft_calloc(sizeof(char *) , 2);
-	protect_malloc(NULL, NULL, str, NULL);
-	*str = NULL;
+	while (i < argc - 1)
+	{
+		if (!(argv + 1)[i] || (argv + 1)[i][0] == '\0')
+			ft_error(str);
+		i++;
+	}
 	if (argc == 2 && argv[1][0] != '\0')
 	{
 		str = ft_split(argv[1], ' ');
 		protect_malloc(NULL, NULL, str, NULL);
 	}
 	else if (argc > 2)
-		pars_mult_args(str, tmp, argc, argv);
-	else
-		ft_error(str);
+	{
+		str = ft_calloc(sizeof(char *), 2);
+		protect_malloc(NULL, NULL, str, NULL);
+		pars_mult_args(&str, argc, argv);
+	}
 	return (str);
 }
 
@@ -89,11 +92,10 @@ void	push_swap(int argc, char **argv)
 	int			*tab;
 	int			len_str;
 
-	list_a = NULL;
-	list_b = NULL;
-	tab = NULL;
+	clean_values(&list_a, &list_b, &str, &tab);
 	len_str = 0;
-	str = NULL;
+	if (argc < 2)
+		ft_error(str);
 	str = init_str(argc, argv, str);
 	while (str[len_str])
 		len_str++;

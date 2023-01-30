@@ -3,42 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   pars_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aucaland <aucaland@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:23:39 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 17:46:24 by aucaland         ###   ########.fr       */
+/*   Updated: 2023/01/30 23:42:05 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pars_mult_args(char **str, char *tmp, int argc, char **argv)
+void	pars_mult_args(char ***str, int argc, char **argv)
 {
-	int	i;
+	char *tmp_first;
+
+	tmp_first = NULL;
+	**str = ft_strjoin((argv + 1)[0], ESCAPE);
+	protect_malloc_tab(NULL, NULL, *str, (void **)*str);
+	join_args_into_one(str, tmp_first, argv, argc);
+	tmp_first = **str;
+	free(*str);
+	*str = ft_split(tmp_first, ' ');
+	protect_malloc_tab(NULL, NULL, *str, (void **)*str);
+}
+
+void	join_args_into_one(char ***str, char *tmp_first, char **argv, int argc)
+{
+	char	*tmp_second;
+	int		i;
 
 	i = 0;
-	while (i < argc - 1)
+	tmp_second = NULL;
+	while (++i < argc - 1)
 	{
-		if (!(argv + 1)[i] || (argv + 1)[i][0] == '\0')
-			ft_error(str);
+		tmp_first = ft_strjoin((argv + 1)[i], ESCAPE);
+		if (!tmp_first)
+			protect_malloc_tab(NULL, NULL, tmp_first, (void **)*str);
+		tmp_second = ft_strjoin(*str[0], tmp_first);
+		if (!tmp_second)
+		{
+			ft_free_tab(str);
+			protect_malloc(NULL, NULL, tmp_second, tmp_first);
+		}
+		free(*str[0]);
+		*str[0] = tmp_second;
+		ft_free_multiple(tmp_first, tmp_second, NULL, NULL);
 		i++;
 	}
-	i = 1;
-	str[0] = ft_strdup((argv + 1)[0]);
-	dprintf(2, "%s\n", str[0]);
-	protect_malloc(NULL, NULL, *str, NULL);
-	while (i < argc - 1)
-	{
-		tmp = ft_strjoin(str[0], ESCAPE);
-		str[0] = ft_strjoin(tmp, (argv + 1)[i]);
+}
 
-		protect_malloc(NULL, NULL, str[0], tmp);
-		//free(tmp);
-		i++;
-	}
-	dprintf(2, "%s\n", str[0]);
-	tmp = *str;
-	str = ft_split(tmp, ' ');
-	ft_free(tmp);
-	protect_malloc(NULL, NULL, str, tmp);
+void	clean_values(t_list_int **list_a, t_list_int **list_b, char ***str, \
+															int **tab)
+{
+	*list_a = NULL;
+	*list_b = NULL;
+	*tab = NULL;
+	*str = NULL;
 }

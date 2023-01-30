@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aucaland <aucaland@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 20:40:37 by aurel             #+#    #+#             */
-/*   Updated: 2023/01/30 14:49:42 by aucaland         ###   ########.fr       */
+/*   Updated: 2023/01/30 22:49:08 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	protect_malloc_tab(t_list_int **list_a, t_list_int **list_b, \
 	if (ptr_check)
 		return ;
 	if (ptr_to_free)
-		ft_free_tab((char ***)ptr_to_free);
+		ft_free_tab((char ***)&ptr_to_free);
 	ft_putendl_fd("Error", 2);
 	exit_ps(list_a, list_b);
 }
