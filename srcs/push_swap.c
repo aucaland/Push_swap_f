@@ -6,7 +6,7 @@
 /*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:25:30 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 23:38:13 by aurel            ###   ########.fr       */
+/*   Updated: 2023/01/30 23:47:27 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,13 @@ static void	get_list(t_list_int **list, int *tab, int len_str, char **str)
 	}
 }
 
-char	**init_str(int argc, char **argv, char **str)
+char	**init_str(int argc, char **argv)
 {
+	char **str;
 	int	i;
 
 	i = 0;
+	str = NULL;
 	while (i < argc - 1)
 	{
 		if (!(argv + 1)[i] || (argv + 1)[i][0] == '\0')
@@ -96,7 +98,7 @@ void	push_swap(int argc, char **argv)
 	len_str = 0;
 	if (argc < 2)
 		ft_error(str);
-	str = init_str(argc, argv, str);
+	str = init_str(argc, argv);
 	while (str[len_str])
 		len_str++;
 	tab = malloc(sizeof(int) * len_str);

@@ -6,7 +6,7 @@
 /*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:23:39 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 23:42:05 by aurel            ###   ########.fr       */
+/*   Updated: 2023/01/30 23:52:19 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ void	pars_mult_args(char ***str, int argc, char **argv)
 	**str = ft_strjoin((argv + 1)[0], ESCAPE);
 	protect_malloc_tab(NULL, NULL, *str, (void **)*str);
 	join_args_into_one(str, tmp_first, argv, argc);
-	tmp_first = **str;
 	free(*str);
-	*str = ft_split(tmp_first, ' ');
+	*str = ft_split(**str, ' ');
 	protect_malloc_tab(NULL, NULL, *str, (void **)*str);
 }
 
