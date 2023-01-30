@@ -9,7 +9,8 @@ SRC_NAME	= push_swap.c\
 			  push_utils2.c\
 			  list_search.c\
 			  errors.c\
-			  errors2.c
+			  errors2.c\
+			  pars_utils.c
 
 
 

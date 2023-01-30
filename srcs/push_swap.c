@@ -6,7 +6,7 @@
 /*   By: aucaland <aucaland@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:25:30 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 14:18:03 by aucaland         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:27:09 by aucaland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,27 +61,21 @@ static void	get_list(t_list_int **list, int *tab, int len_str, char **str)
 
 char	**init_str(int argc, char **argv, char **str)
 {
-	int	i;
+	int		i;
+	char	*tmp;
 
 	i = 0;
+	tmp = NULL;
+	str = ft_calloc(sizeof(char *) , 2);
+	protect_malloc(NULL, NULL, str, NULL);
+	*str = NULL;
 	if (argc == 2 && argv[1][0] != '\0')
 	{
 		str = ft_split(argv[1], ' ');
 		protect_malloc(NULL, NULL, str, NULL);
 	}
 	else if (argc > 2)
-	{
-		str = malloc(sizeof(char *) * argc);
-		protect_malloc(NULL, NULL, str, NULL);
-		str[argc - 1] = NULL;
-		while (i < argc - 1)
-		{
-			str[i] = ft_strdup((argv + 1)[i]);
-			if (!str[i] || str[i][0] == '\0')
-				ft_error(str);
-			i++;
-		}
-	}
+		pars_mult_args(str, tmp, argc, argv);
 	else
 		ft_error(str);
 	return (str);

@@ -6,7 +6,7 @@
 /*   By: aucaland <aucaland@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:25:35 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 15:00:18 by aucaland         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:24:51 by aucaland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "LIBFT/libft.h"
 # include <errno.h>
 # include <stdio.h>
+
+# define ESCAPE	" "
 
 typedef struct s_stack
 {
@@ -27,6 +29,7 @@ typedef struct s_stack
 void	push_swap(int argc, char **argv);
 void	pushswap_algo(t_list_int **list_a, t_list_int **list_b);
 int		*decrease_nbr(int *tab, char **str, int len_str);
+void	pars_mult_args(char **str, char *tmp, int argc, char **argv);
 
 /*					OPERATION					*/
 
