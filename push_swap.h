@@ -6,7 +6,7 @@
 /*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:25:35 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 23:33:23 by aurel            ###   ########.fr       */
+/*   Updated: 2023/01/30 23:38:14 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_stack
 void	push_swap(int argc, char **argv);
 void	pushswap_algo(t_list_int **list_a, t_list_int **list_b);
 int		*decrease_nbr(int *tab, char **str, int len_str);
-void	pars_mult_args(char ***str, int argc, char **argv);
+char	**pars_mult_args(char ***str, int argc, char **argv);
 void	clean_values(t_list_int **list_a, t_list_int **list_b, char ***str, \
 															int **tab);
 void	join_args_into_one(char ***str, char *tmp_first, char **argv, \

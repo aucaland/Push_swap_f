@@ -6,23 +6,25 @@
 /*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:23:39 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 23:52:19 by aurel            ###   ########.fr       */
+/*   Updated: 2023/01/31 00:22:05 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pars_mult_args(char ***str, int argc, char **argv)
+char	**pars_mult_args(char ***str, int argc, char **argv)
 {
 	char *tmp_first;
+	char **ret;
 
 	tmp_first = NULL;
 	**str = ft_strjoin((argv + 1)[0], ESCAPE);
 	protect_malloc_tab(NULL, NULL, *str, (void **)*str);
 	join_args_into_one(str, tmp_first, argv, argc);
-	free(*str);
-	*str = ft_split(**str, ' ');
-	protect_malloc_tab(NULL, NULL, *str, (void **)*str);
+	ret = ft_split(**str, ' ');
+	protect_malloc_tab(NULL, NULL, ret, (void **)*str);
+	ft_free_tab(str);
+	return (ret);
 }
 
 void	join_args_into_one(char ***str, char *tmp_first, char **argv, int argc)
@@ -44,9 +46,13 @@ void	join_args_into_one(char ***str, char *tmp_first, char **argv, int argc)
 			protect_malloc(NULL, NULL, tmp_second, tmp_first);
 		}
 		free(*str[0]);
-		*str[0] = tmp_second;
+		*str[0] = ft_strdup(tmp_second);
+		if (str[0] == NULL)
+		{
+			free(tmp_first);
+			return (protect_malloc(NULL, NULL, *str[0], tmp_second));
+		}
 		ft_free_multiple(tmp_first, tmp_second, NULL, NULL);
-		i++;
 	}
 }
 

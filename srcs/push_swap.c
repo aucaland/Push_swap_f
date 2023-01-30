@@ -6,7 +6,7 @@
 /*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:25:30 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 23:47:27 by aurel            ###   ########.fr       */
+/*   Updated: 2023/01/31 00:11:51 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,15 @@ char	**init_str(int argc, char **argv)
 	{
 		str = ft_split(argv[1], ' ');
 		protect_malloc(NULL, NULL, str, NULL);
+		return (str);
 	}
 	else if (argc > 2)
 	{
 		str = ft_calloc(sizeof(char *), 2);
 		protect_malloc(NULL, NULL, str, NULL);
-		pars_mult_args(&str, argc, argv);
+		return (pars_mult_args(&str, argc, argv));
 	}
-	return (str);
+	return (0);
 }
 
 void	push_swap(int argc, char **argv)
