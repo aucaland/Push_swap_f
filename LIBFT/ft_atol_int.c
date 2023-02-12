@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol_int.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aucaland <aucaland@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:05:03 by aucaland          #+#    #+#             */
-/*   Updated: 2022/12/09 17:05:03 by aucaland         ###   ########.fr       */
+/*   Updated: 2023/02/12 11:41:31 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	is_space(const char str)
-{
-	if (str == '\t' || str == '\n' || str == '\v' \
-		|| str == '\f' || str == '\r' || str == ' ')
-		return (1);
-	return (0);
-}
 
 long int	ft_atol_int(const char *str)
 {
@@ -29,7 +21,7 @@ long int	ft_atol_int(const char *str)
 	n = 0;
 	sign = 1;
 	i = 0;
-	while (is_space(str[i]))
+	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{

@@ -69,7 +69,8 @@ SRCS		=	ft_atoi.c\
 				ft_lstclear_stack.c\
 				ft_lstsize_int.c\
 				ft_lstadd_front_int.c\
-				ft_lstlast_int.c
+				ft_lstlast_int.c\
+				ft_is_space.c
 
 OBJS		=	$(SRCS:%.c=$(OBJS_DIR)%.o)
 

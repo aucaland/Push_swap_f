@@ -17,7 +17,7 @@
 # include <errno.h>
 # include <stdio.h>
 
-# define ESCAPE	" "
+# define SPACE	" "
 
 typedef struct s_stack
 {

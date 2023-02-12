@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_is_space.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 14:54:38 by aucaland          #+#    #+#             */
-/*   Updated: 2023/02/12 11:39:57 by aurel            ###   ########.fr       */
+/*   Created: 2023/02/12 11:37:45 by aurel             #+#    #+#             */
+/*   Updated: 2023/02/12 11:37:45 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int is_space(char *str)
 {
-	int long long		n;
-	int long long		sign;
-	int					i;
-
-	n = 0;
-	sign = 1;
-	i = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	int	i;
+	if (!str)
+		return (0);
+	i = ft_strlen(str);
+	while (*str == ' ')
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		i--;
+		++str;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-		n = n * 10 + (str[i++] - '0');
-	return ((int)(n * sign));
+	if (i == 0)
+		return (1);
+	return (0);
 }

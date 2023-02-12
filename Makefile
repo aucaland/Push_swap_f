@@ -46,8 +46,7 @@ CH_FLAG	= -I. -ILIBFT
 all:			$(NAME)
 
 LIBFT/libft.a:
-	@echo "Making LIBFT"
-	@make all -C LIBFT
+	@make --no-print-directory all -C LIBFT
 
 $(NAME):	$(LIBS) $(OBJ)
 	@$(CC) $^ -o $(NAME) $(CFLAGS) $(CH_FLAG) -L./LIBFT -lft

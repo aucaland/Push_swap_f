@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aucaland <aucaland@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:19:32 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 14:59:19 by aucaland         ###   ########.fr       */
+/*   Updated: 2023/02/12 11:40:35 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,8 +122,7 @@ void			ft_free(void *ptr);
 int				**ft_freetabi(int **tab);
 
 /*				Utils_no_libft			*/
-
-int				ft_isspace(char str);
+int				ft_isspace(char c);
 int				ft_is_digit(char c);
 t_list_int		*ft_lstnew_int(int value);
 void			ft_lstadd_back_int(t_list_int **lst, t_list_int *new);
@@ -134,7 +133,7 @@ void			ft_lstclear_stack(t_list_int **lst);
 int				ft_lstsize_int(t_list_int *lst);
 void			ft_lstadd_front_int(t_list_int **lst, t_list_int *new);
 t_list_int		*ft_lstlast_int(t_list_int *lst);
-
+int				is_space(char *str);
 //convert_base(piscine) //TODO: refactor
 
 char			*ft_convert_base(char *nbr, char *base_from, char *base_to);

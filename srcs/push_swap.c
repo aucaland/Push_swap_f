@@ -6,7 +6,7 @@
 /*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:25:30 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/31 00:11:51 by aurel            ###   ########.fr       */
+/*   Updated: 2023/02/12 11:42:12 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ char	**init_str(int argc, char **argv)
 	str = NULL;
 	while (i < argc - 1)
 	{
-		if (!(argv + 1)[i] || (argv + 1)[i][0] == '\0')
+		if (!(argv + 1)[i] || (argv + 1)[i][0] == '\0' || \
+										is_space((argv + 1)[i]))
 			ft_error(str);
 		i++;
 	}
@@ -98,7 +99,7 @@ void	push_swap(int argc, char **argv)
 	clean_values(&list_a, &list_b, &str, &tab);
 	len_str = 0;
 	if (argc < 2)
-		ft_error(str);
+		exit_ps(&list_a, &list_b);
 	str = init_str(argc, argv);
 	while (str[len_str])
 		len_str++;
