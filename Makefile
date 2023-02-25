@@ -45,16 +45,16 @@ CH_FLAG	= -I. -ILIBFT
 
 all:			$(NAME)
 
-LIBFT/libft.a:
+$(LIBS):	force
 	@make --no-print-directory all -C LIBFT
 
-$(NAME):	$(LIBS) $(OBJ)
+$(NAME):	 $(OBJ) $(LIBS)
 	@$(CC) $^ -o $(NAME) $(CFLAGS) $(CH_FLAG) -L./LIBFT -lft
 	@printf %b  "\033[1;35m-[$(NAME)]__Edit/Create .o in \033[0m  \033[0;32m[OK]\033[0m\n"
 	@printf %b  "\r"
 	@$(MODE)
 
-$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(LIBH) LIBFT
+$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(LIBH) $(LIBS)
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(CH_FLAG) -o $@ -c $<
 	@printf %b "-\033[1;35m[$(NAME)]\033[0m__Compiling \033[1;92m$<\033[0m in \033[1;92m$@\033[0m..."
@@ -73,4 +73,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re force
