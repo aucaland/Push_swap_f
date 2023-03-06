@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aucaland <aucaland@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 09:33:38 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 15:44:45 by aucaland         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:58:27 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,31 +66,22 @@ void	check_max_int(char *str, int *tab, char **str_malloc)
 	free(str_max);
 }
 
-void	check_dup(char **str, int len_src, int argc)
+void	check_dup(char **str, int *tab, int len_str)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i < len_src - 1)
+	j = -1;
+	while (++i < len_str)
 	{
-		j = i + 1;
-		while (j < len_src)
+		j = -1;
+		while (++j < len_str)
 		{
-			if (ft_strlen(str[i]) == ft_strlen(str[j]))
-			{
-				if (ft_strncmp(str[i], str[j], ft_strlen(str[i])) == 0)
-				{
-					if (argc == 2)
-						ft_error(str);
-					else
-					{
-						ft_putendl_fd("Error", 2);
-						exit(EXIT_FAILURE);
-					}
-				}
-			}
-			j++;
+			if (j == i)
+				continue;
+			else if (tab[i] == tab[j])
+				return (ft_error(str));
 		}
 	}
 }

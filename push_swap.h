@@ -6,7 +6,7 @@
 /*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:25:35 by aucaland          #+#    #+#             */
-/*   Updated: 2023/01/30 23:38:14 by aurel            ###   ########.fr       */
+/*   Updated: 2023/03/06 15:57:51 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	r_rotate_all(t_list_int **list_a, t_list_int **list_b);
 void	ft_check_stack(t_list_int **list_a, t_list_int **list_b);//TODO:erase
 int		check_sort(t_list_int **list_a, int size);
 void	check_max_int(char *str, int *tab, char **str_malloc);
-void	check_dup(char **str, int len_src, int argc);
+void	check_dup(char **str, int *tab, int len_src);
 void	check_str(char **str, int len_str);
 int		zero(char *str);
 

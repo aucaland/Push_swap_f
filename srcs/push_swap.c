@@ -6,7 +6,7 @@
 /*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:25:30 by aucaland          #+#    #+#             */
-/*   Updated: 2023/02/12 11:42:12 by aurel            ###   ########.fr       */
+/*   Updated: 2023/03/06 15:57:51 by aurel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ void	push_swap(int argc, char **argv)
 	tab = malloc(sizeof(int) * len_str);
 	protect_malloc_tab(NULL, NULL, tab, (void **)str);
 	check_str(str, len_str);
-	check_dup(str, len_str, argc);
 	tab = pars_argv(str, tab, len_str);
+	check_dup(str, tab, len_str);
 	get_list(&list_a, tab, len_str, str);
 	free(tab);
 	if (argc == 2)
