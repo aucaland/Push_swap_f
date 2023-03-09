@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: aucaland <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:25:30 by aucaland          #+#    #+#             */
-/*   Updated: 2023/03/06 15:57:51 by aurel            ###   ########.fr       */
+/*   Updated: 2023/03/09 12:40:40 by aucaland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ static void	get_list(t_list_int **list, int *tab, int len_str, char **str)
 
 char	**init_str(int argc, char **argv)
 {
-	char **str;
-	int	i;
+	char	**str;
+	int		i;
 
 	i = 0;
 	str = NULL;

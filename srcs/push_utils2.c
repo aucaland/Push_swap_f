@@ -79,7 +79,7 @@ void	check_dup(char **str, int *tab, int len_str)
 		while (++j < len_str)
 		{
 			if (j == i)
-				continue;
+				continue ;
 			else if (tab[i] == tab[j])
 				return (ft_error(str));
 		}

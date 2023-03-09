@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurel <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: aucaland <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:23:39 by aucaland          #+#    #+#             */
-/*   Updated: 2023/02/12 10:35:26 by aurel            ###   ########.fr       */
+/*   Updated: 2023/03/09 12:36:36 by aucaland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	**pars_mult_args(char ***str, int argc, char **argv)
 {
-	char *tmp_first;
-	char **ret;
+	char	*tmp_first;
+	char	**ret;
 
 	tmp_first = NULL;
 	**str = ft_strjoin((argv + 1)[0], SPACE);
@@ -23,7 +23,7 @@ char	**pars_mult_args(char ***str, int argc, char **argv)
 	join_args_into_one(str, tmp_first, argv, argc);
 	ret = ft_split(**str, ' ');
 	protect_malloc_tab(NULL, NULL, ret, (void **)*str);
-	ft_free_tab(str);
+	*str = ft_free_tab(str);
 	return (ret);
 }
 

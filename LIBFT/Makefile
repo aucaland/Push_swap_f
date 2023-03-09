@@ -6,6 +6,7 @@ SRCS_DIR 	= ./
 OBJS_DIR	= ./
 
 SRCS		=	ft_atoi.c\
+				ft_atoi_base.c\
 				ft_isalpha.c\
 				ft_isdigit.c\
 				ft_isalnum.c\
