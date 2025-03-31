@@ -39,4 +39,8 @@ sa
 pa
 pa
 pa
+```
 
+Pour 100 nombres, le programme doit trier en moins de 700 opérations.
+
+Pour 500 nombres, le programme doit trier en moins de 5500 opérations.
