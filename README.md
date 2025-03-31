@@ -2,15 +2,15 @@
 
 Philosophers is a project that explores concurrent programming and synchronization issues using threads and mutexes in C. It is inspired by the famous **Dining Philosophers Problem**, which demonstrates resource sharing and deadlock prevention.
 
-## 🏛️ Problem Statement  
+## Problem Statement  
 Several philosophers sit at a circular table, each with a fork on their left and right. To eat, a philosopher must pick up both forks. The challenge is to avoid deadlocks and ensure proper synchronization.
 
-## 🚀 Features  
+## Features  
 - Implementation of the **Dining Philosophers Problem** using **threads** and **mutexes**.  
 - Proper **handling of concurrency** to avoid deadlocks.  
 - Management of **resource sharing** while ensuring each philosopher gets a chance to eat.  
 
-## 📌 Requirements  
+## Requirements  
 - A UNIX-based system  
 - A C compiler (`gcc` or `clang`)  
 - `make` for compilation  
@@ -23,7 +23,7 @@ cd philosophers
 make
 ```
 
-## ▶️ Usage  
+## Usage  
 Run the program with the following arguments:  
 ```sh
 ./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
