@@ -39,7 +39,7 @@ Run the program with the following arguments:
 
 If the optional argument `[number_of_times_each_philosopher_must_eat]` is provided, the simulation stops once all philosophers have eaten the required number of times.
 
-## 🎯 Bonus Features  
+## Bonus Features
 [ ] **philo_one**: Implementation using only **mutexes**.  
 [ ] **philo_two**: Implementation using **semaphores** instead of mutexes. 
 
